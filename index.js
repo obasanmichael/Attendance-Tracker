@@ -1,20 +1,19 @@
 import express from "express";
 import bodyParser from "body-parser";
-import mongoose from "mongoose";
+import { router as userRoutes } from "./routes/userRoutes.js"; // Import as a named export
+import connectToDatabase from "./config/database.js";
+import User from "./src/models/user.js";
 
 const app = express();
 const port = 3000;
 
-mongoose.connect("mongodb://localhost:27017/attendance_tracker");
+app.use(bodyParser.json());
 
-app.set('view engine', 'ejs')
 
-app.get("/", (req, res) => {
-    res.render("login", {title: "Login"})
-})
-app.get("/signup", (req, res) => {
-    res.render("signup")
-})
+
+connectToDatabase()
+
+app.use("/api/user", userRoutes);
 
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
