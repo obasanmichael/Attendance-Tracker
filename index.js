@@ -18,13 +18,18 @@ app.use(bodyParser.json());
 
 connectToDatabase();
 
-app.get("/login", (req, res) => {
+app.get("/", (req, res) => {
   res.render("login"); 
 });
 
 app.get("/signup", (req, res) => {
   res.render("signup"); 
 });
+
+app.get("/dashboard", (req, res) => {
+  res.render("home");
+});
+
 
 app.use("/api/user", userRoutes);
 
