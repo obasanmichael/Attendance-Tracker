@@ -13,7 +13,7 @@
   <body class="bg-gray-100 min-h-screen flex items-center justify-center">
     <div class="bg-white w-full max-w-md p-8 rounded-md shadow-md">
       <h2 class="text-3xl font-semibold mb-6 text-center">Login</h2>
-      <form action="/api/user/signup" class="space-y-4">
+      <form action="api/user/login" method="post" id="login-form" class="space-y-4">
         <div>
           <label for="username" class="block text-sm font-medium text-gray-600"
             >Matriculation number:</label
@@ -49,25 +49,24 @@
       </form>
     </div>
     <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const loginForm = document.querySelector('#login-form');
-    const signupForm = document.querySelector('#signup-form');
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.querySelector("#login-form");
+        const signupForm = document.querySelector("#signup-form");
 
-    if (loginForm) {
-      loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Add logic to handle login form submission (e.g., fetch to your backend)
+        if (loginForm) {
+          loginForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Add logic to handle login form submission (e.g., fetch to your backend)
+          });
+        }
+
+        if (signupForm) {
+          signupForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // Add logic to handle signup form submission (e.g., fetch to your backend)
+          });
+        }
       });
-    }
-
-    if (signupForm) {
-      signupForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        // Add logic to handle signup form submission (e.g., fetch to your backend)
-      });
-    }
-  });
-</script>
-
+    </script>
   </body>
 </html>
